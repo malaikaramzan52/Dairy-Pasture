@@ -11,6 +11,8 @@ import {
   Home as HomeIcon,
   Stethoscope
 } from 'lucide-react';
+import CtaBanner from '../components/CtaBanner';
+import BotanicalCornerLeaves from '../components/BotanicalCornerLeaves';
 
 export default function Farm({ onNavigate }) {
   const dailyActivities = [
@@ -75,34 +77,62 @@ export default function Farm({ onNavigate }) {
 
   return (
     <div className="w-full bg-[#F8FAF7]">
-      {/* SECTION 1: FARM HERO */}
-      <section className="relative overflow-hidden py-16 lg:py-24 bg-white border-b border-[#DCE5DD]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <div className="max-w-3xl mx-auto text-center space-y-4">
-            <span className="inline-block text-xs font-semibold uppercase tracking-wider text-[#236B45] bg-[#E9F3E9] px-3.5 py-1.5 rounded-full border border-[#236B45]/20">
-              LIFE ON THE FARM
-            </span>
-            <h1 className="font-heading text-[32px] sm:text-[46px] lg:text-[52px] font-bold text-[#153F2C] tracking-tight leading-[1.2]">
+      {/* SECTION 1: FARM HERO WITH BACKGROUND IMAGE */}
+      <section className="relative overflow-hidden py-16 sm:py-20 lg:py-28 border-b border-[#DCE5DD]">
+        {/* Background Image (About Us Hero Image) */}
+        <img
+          src="/images/Img-17.png"
+          alt="Dairy & Pasture farm landscape"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        {/* Overlay with Opacity for Clear Text Visibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#07190F]/90 via-[#07190F]/75 to-[#07190F]/50 sm:to-[#07190F]/40" />
+
+        <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl lg:max-w-3xl space-y-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md text-[#5EE59D] text-xs sm:text-sm font-semibold tracking-wider uppercase border border-white/20">
+              <Sparkles className="w-3.5 h-3.5 text-[#5EE59D]" />
+              <span>LIFE ON THE FARM</span>
+            </div>
+
+            <h1 className="font-heading text-[34px] sm:text-[46px] lg:text-[56px] font-bold text-white tracking-tight leading-[1.15] drop-shadow-sm">
               Life at Dairy & Pasture
             </h1>
-            <p className="text-[16px] sm:text-[18px] text-[#657168] leading-relaxed">
+
+            <p className="text-[16px] sm:text-[18px] text-[#E0EBE2] leading-[1.7] max-w-xl font-normal drop-shadow-sm">
               Take a closer look at our dairy farming environment and the animals at the heart of our work in Lahore, Pakistan.
             </p>
-          </div>
 
-          <div className="mt-12 rounded-[16px] overflow-hidden border border-[#DCE5DD] shadow-lg aspect-[16/9] sm:aspect-[21/9]">
-            <img
-              src="/images/farm-pasture-landscape.jpg"
-              alt="Pasture scenery at Dairy & Pasture farm"
-              className="w-full h-full object-cover"
-            />
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+              <button
+                onClick={() => onNavigate('process')}
+                className="bg-[#236B45] hover:bg-[#1b5336] text-white text-[15px] font-semibold px-7 py-3.5 rounded-[8px] transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer group"
+              >
+                <span>View Our Process</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+
+              <button
+                onClick={() => onNavigate('contact')}
+                className="bg-white/10 hover:bg-white/20 text-white border-2 border-white/80 text-[15px] font-semibold px-7 py-3.5 rounded-[8px] transition-all duration-200 shadow-sm backdrop-blur-md flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>Schedule a Visit</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* SECTION 2: OUR COWS */}
-      <section className="py-20 lg:py-24 bg-[#F8FAF7] border-b border-[#DCE5DD]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+      <section className="relative overflow-hidden py-20 lg:py-28 bg-gradient-to-b from-[#EBF4ED] via-white to-[#F4F9F5] border-b border-[#DCE5DD]">
+        {/* Top-Right Decorative Botanical Leaves (CTA Banner Style) */}
+        <BotanicalCornerLeaves position="top-right" />
+
+        {/* Bottom-Left Decorative Botanical Leaves (CTA Banner Style) */}
+        <BotanicalCornerLeaves position="bottom-left" />
+
+        <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Visuals */}
             <div className="lg:col-span-6 space-y-4">
@@ -333,26 +363,12 @@ export default function Farm({ onNavigate }) {
         </div>
       </section>
 
-      {/* SECTION 6: FARM-TO-PROCESS CTA */}
-      <section className="py-20 bg-[#153F2C] text-white">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 text-center space-y-6">
-          <h2 className="font-heading text-[30px] sm:text-[40px] font-bold text-white tracking-tight">
-            Discover What Happens After Milk Collection
-          </h2>
-          <p className="text-base sm:text-lg text-[#E9F3E9]/80 max-w-2xl mx-auto">
-            Once milk is harvested, it begins a carefully monitored journey through quality testing, sanitary filtration, chilling, and hygienic sealed packaging.
-          </p>
-          <div className="pt-2">
-            <button
-              onClick={() => onNavigate('process')}
-              className="bg-[#236B45] hover:bg-[#2e8255] text-white font-semibold text-[15px] px-8 py-3.5 rounded-[8px] transition-colors cursor-pointer shadow-md inline-flex items-center gap-2"
-            >
-              <span>Explore Our Process</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-      </section>
+      {/* SECTION 6: FARM-TO-PROCESS CTA BANNER */}
+      <CtaBanner
+        onNavigate={onNavigate}
+        secondaryBtnText="Explore Our Process"
+        secondaryBtnPage="process"
+      />
     </div>
   );
 }

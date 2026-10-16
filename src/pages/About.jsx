@@ -12,6 +12,8 @@ import {
   Leaf,
   Award
 } from 'lucide-react';
+import CtaBanner from '../components/CtaBanner';
+import BotanicalCornerLeaves from '../components/BotanicalCornerLeaves';
 
 export default function About({ onNavigate }) {
   const missionCards = [
@@ -67,34 +69,62 @@ export default function About({ onNavigate }) {
 
   return (
     <div className="w-full bg-[#F8FAF7]">
-      {/* SECTION 1: ABOUT HERO */}
-      <section className="relative overflow-hidden py-16 lg:py-24 bg-white border-b border-[#DCE5DD]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <div className="max-w-3xl mx-auto text-center space-y-4">
-            <span className="inline-block text-xs font-semibold uppercase tracking-wider text-[#236B45] bg-[#E9F3E9] px-3.5 py-1.5 rounded-full border border-[#236B45]/20">
-              OUR HERITAGE & APPROACH
-            </span>
-            <h1 className="font-heading text-[32px] sm:text-[46px] lg:text-[52px] font-bold text-[#153F2C] tracking-tight leading-[1.2]">
+      {/* SECTION 1: ABOUT HERO WITH BACKGROUND IMAGE */}
+      <section className="relative overflow-hidden py-16 sm:py-20 lg:py-28 border-b border-[#DCE5DD]">
+        {/* Background Image (Farm Hero Image) */}
+        <img
+          src="/images/farm-pasture-landscape.jpg"
+          alt="Dairy & Pasture farm pasture view"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        {/* Overlay with Opacity for Clear Text Visibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#07190F]/90 via-[#07190F]/75 to-[#07190F]/50 sm:to-[#07190F]/40" />
+
+        <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl lg:max-w-3xl space-y-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md text-[#5EE59D] text-xs sm:text-sm font-semibold tracking-wider uppercase border border-white/20">
+              <Sparkles className="w-3.5 h-3.5 text-[#5EE59D]" />
+              <span>OUR HERITAGE & APPROACH</span>
+            </div>
+
+            <h1 className="font-heading text-[34px] sm:text-[46px] lg:text-[56px] font-bold text-white tracking-tight leading-[1.15] drop-shadow-sm">
               Getting to Know Dairy & Pasture
             </h1>
-            <p className="text-[16px] sm:text-[18px] text-[#657168] leading-relaxed">
+
+            <p className="text-[16px] sm:text-[18px] text-[#E0EBE2] leading-[1.7] max-w-xl font-normal drop-shadow-sm">
               Discover our approach to dairy farming, animal care, and the journey of milk from farm to processing right here in Lahore, Pakistan.
             </p>
-          </div>
 
-          <div className="mt-12 rounded-[16px] overflow-hidden border border-[#DCE5DD] shadow-lg aspect-[16/9] sm:aspect-[21/9]">
-            <img
-              src="/images/Img-17.png"
-              alt="Dairy & Pasture farm panoramic view"
-              className="w-full h-full object-cover"
-            />
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+              <button
+                onClick={() => onNavigate('farm')}
+                className="bg-[#236B45] hover:bg-[#1b5336] text-white text-[15px] font-semibold px-7 py-3.5 rounded-[8px] transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer group"
+              >
+                <span>Explore Our Farm</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+
+              <button
+                onClick={() => onNavigate('contact')}
+                className="bg-white/10 hover:bg-white/20 text-white border-2 border-white/80 text-[15px] font-semibold px-7 py-3.5 rounded-[8px] transition-all duration-200 shadow-sm backdrop-blur-md flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>Get In Touch</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* SECTION 2: OUR STORY */}
-      <section className="py-20 lg:py-24 bg-[#F8FAF7] border-b border-[#DCE5DD]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+      <section className="relative overflow-hidden py-20 lg:py-28 bg-gradient-to-b from-[#EBF4ED] via-white to-[#F4F9F5] border-b border-[#DCE5DD]">
+        {/* Top-Right Decorative Botanical Leaves (CTA Banner Style) */}
+        <BotanicalCornerLeaves position="top-right" />
+
+        {/* Bottom-Left Decorative Botanical Leaves (CTA Banner Style) */}
+        <BotanicalCornerLeaves position="bottom-left" />
+
+        <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Story Image */}
             <div className="lg:col-span-5">
@@ -156,17 +186,27 @@ export default function About({ onNavigate }) {
         </div>
       </section>
 
-      {/* SECTION 3: OUR MISSION */}
-      <section className="py-20 lg:py-24 bg-white border-b border-[#DCE5DD]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+      {/* SECTION 3: OUR MISSION (OUR APPROACH TO BETTER DAIRY) */}
+      <section className="relative overflow-hidden py-20 lg:py-28 border-b border-[#DCE5DD]">
+        {/* Background Image */}
+        <img
+          src="/images/goats-img.jpg"
+          alt="Dairy goats at pasture"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        {/* Deep Green Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#07190F]/92 via-[#0A2E1C]/84 to-[#07190F]/94" />
+
+        <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#236B45] bg-[#E9F3E9] px-3 py-1 rounded-md">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/10 text-[#5EE59D] text-xs font-semibold uppercase tracking-wider border border-white/15 backdrop-blur-sm">
               CORE PURPOSE
             </span>
-            <h2 className="font-heading text-[28px] sm:text-[38px] font-semibold text-[#153F2C]">
+            <h2 className="font-heading text-[28px] sm:text-[38px] font-bold text-white tracking-tight">
               Our Approach to Better Dairy
             </h2>
-            <p className="text-[16px] text-[#657168]">
+            <p className="text-[16px] text-[#D3E4D7] leading-relaxed">
               Three foundational pillars that guide our daily decisions across animal husbandry, collection, and distribution.
             </p>
           </div>
@@ -175,12 +215,12 @@ export default function About({ onNavigate }) {
             {missionCards.map((card, idx) => (
               <div
                 key={idx}
-                className="bg-[#F8FAF7] border border-[#DCE5DD] rounded-[16px] p-8 hover:border-[#236B45] transition-all hover:-translate-y-1 shadow-xs"
+                className="bg-white/95 backdrop-blur-md border border-white/85 rounded-[18px] p-8 hover:border-[#236B45] transition-all hover:-translate-y-1 shadow-xl group"
               >
-                <div className="w-12 h-12 rounded-full bg-[#E9F3E9] flex items-center justify-center mb-6">
+                <div className="w-12 h-12 rounded-full bg-[#E9F3E9] flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
                   {card.icon}
                 </div>
-                <h3 className="font-heading font-semibold text-xl text-[#153F2C] mb-3">
+                <h3 className="font-heading font-bold text-xl text-[#153F2C] mb-3">
                   {card.title}
                 </h3>
                 <p className="text-sm text-[#657168] leading-relaxed">
@@ -228,6 +268,9 @@ export default function About({ onNavigate }) {
         </div>
       </section>
 
+      {/* CTA BANNER (ABOVE FROM GREEN PASTURES TO CLEAN PACKETS) */}
+      <CtaBanner onNavigate={onNavigate} />
+
       {/* SECTION 5: OUR FARM-TO-PROCESS APPROACH */}
       <section className="py-20 lg:py-24 bg-white border-b border-[#DCE5DD]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
@@ -254,27 +297,6 @@ export default function About({ onNavigate }) {
                 </button>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 6: CONTACT CTA */}
-      <section className="py-20 bg-[#153F2C] text-white">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 text-center space-y-6">
-          <h2 className="font-heading text-[30px] sm:text-[40px] font-bold text-white tracking-tight">
-            Want to Know More About Us?
-          </h2>
-          <p className="text-base sm:text-lg text-[#E9F3E9]/80 max-w-xl mx-auto">
-            We are always happy to answer questions from customers, discuss animal welfare, or provide dairy details.
-          </p>
-          <div className="pt-2">
-            <button
-              onClick={() => onNavigate('contact')}
-              className="bg-[#236B45] hover:bg-[#2e8255] text-white font-semibold text-[15px] px-8 py-3.5 rounded-[8px] transition-colors cursor-pointer shadow-md inline-flex items-center gap-2"
-            >
-              <span>Get in Touch</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
           </div>
         </div>
       </section>

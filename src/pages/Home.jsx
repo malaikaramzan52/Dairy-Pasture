@@ -6,16 +6,24 @@ import {
   Sparkles,
   ShieldCheck,
   Droplets,
+  Droplet,
+  Leaf,
   Filter,
   PackageCheck,
   HeartHandshake,
   Layers,
   Milk,
+  Boxes,
+  ClipboardCheck,
   ExternalLink,
   ChevronDown,
   ChevronUp,
-  HelpCircle
+  HelpCircle,
+  Award
 } from 'lucide-react';
+import CtaBanner from '../components/CtaBanner';
+import BotanicalCornerLeaves from '../components/BotanicalCornerLeaves';
+import Counter from '../components/Counter';
 
 export default function Home({ onNavigate }) {
   const [openFaq, setOpenFaq] = useState(0);
@@ -47,29 +55,29 @@ export default function Home({ onNavigate }) {
     {
       step: '01',
       title: 'Milk Collection',
-      desc: 'Collected under clean, hygienic protocols into sanitized food-grade stainless containers.',
-      icon: <Droplets className="w-5 h-5 text-[#236B45]" />,
+      desc: 'Collected under clean, hygienic conditions from healthy animals.',
+      icon: <Milk className="w-5 h-5 text-[#236B45]" />,
       image: '/images/milking.jpg'
     },
     {
       step: '02',
       title: 'Quality Checks',
-      desc: 'Assessing natural density, freshness, and purity metrics before transferring to handling.',
-      icon: <ShieldCheck className="w-5 h-5 text-[#236B45]" />,
-      image: '/images/Img-8.jpg'
+      desc: 'Regular testing for freshness, purity and safety.',
+      icon: <ClipboardCheck className="w-5 h-5 text-[#236B45]" />,
+      image: '/images/Img-1.jpg'
     },
     {
       step: '03',
       title: 'Filtration & Processing',
-      desc: 'Sanitary filtration removes physical sediment; careful temperature control maintains integrity.',
-      icon: <Filter className="w-5 h-5 text-[#236B45]" />,
+      desc: 'Gentle filtration and pasteurization to retain natural goodness.',
+      icon: <Droplet className="w-5 h-5 text-[#236B45]" />,
       image: '/images/Img-7.jpeg'
     },
     {
       step: '04',
       title: 'Hygienic Packaging',
-      desc: 'Filled into food-safe, sealed packaging to guard against exposure and preserve freshness.',
-      icon: <PackageCheck className="w-5 h-5 text-[#236B45]" />,
+      desc: 'Sealed, food-grade packing to ensure freshness and safety.',
+      icon: <Boxes className="w-5 h-5 text-[#236B45]" />,
       image: '/images/packets.png'
     }
   ];
@@ -93,84 +101,68 @@ export default function Home({ onNavigate }) {
 
   return (
     <div className="w-full bg-[#F8FAF7]">
-      {/* SECTION 1: HERO BANNER */}
-      <section className="relative overflow-hidden pt-8 pb-16 lg:py-24 border-b border-[#DCE5DD]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Left Column: Content */}
-            <div className="lg:col-span-7 space-y-6 lg:pr-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E9F3E9] text-[#236B45] text-xs sm:text-sm font-semibold tracking-wider uppercase border border-[#236B45]/20">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>FRESHNESS ROOTED IN NATURE</span>
-              </div>
+      {/* SECTION 1: HERO BANNER WITH BACKGROUND VIDEO */}
+      <section className="relative overflow-hidden py-16 sm:py-20 lg:py-28 border-b border-[#DCE5DD]">
+        {/* Background Video (Muted / Without Audio, Autoplay, Loop) */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/Dairy-Farm.mp4" type="video/mp4" />
+        </video>
 
-              <h1 className="font-heading text-[34px] sm:text-[44px] lg:text-[56px] font-bold text-[#153F2C] tracking-tight leading-[1.15]">
-                From Our Farm to Your Family.
-              </h1>
+        {/* Overlay with Opacity for Clear Text Visibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#07190F]/90 via-[#07190F]/75 to-[#07190F]/50 sm:to-[#07190F]/40" />
 
-              <p className="text-[16px] sm:text-[18px] text-[#657168] leading-[1.7] max-w-xl">
-                Discover our approach to dairy farming, fresh milk production, and careful processing — bringing farm freshness closer to your everyday life in Lahore.
-              </p>
-
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
-                <button
-                  onClick={() => onNavigate('farm')}
-                  className="bg-[#236B45] hover:bg-[#153F2C] text-white text-[15px] font-semibold px-7 py-3.5 rounded-[8px] transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer group"
-                >
-                  <span>Explore Our Farm</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
-
-                <button
-                  onClick={() => onNavigate('process')}
-                  className="bg-white hover:bg-[#E9F3E9] text-[#236B45] border-2 border-[#236B45] text-[15px] font-semibold px-7 py-3.5 rounded-[8px] transition-all duration-200 shadow-sm flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  <span>Discover Our Process</span>
-                </button>
-              </div>
-
-              {/* Micro Trust Points */}
-              <div className="pt-6 border-t border-[#DCE5DD] grid grid-cols-3 gap-4 text-left">
-                <div>
-                  <span className="block font-heading font-bold text-lg sm:text-xl text-[#153F2C]">Lahore</span>
-                  <span className="text-xs text-[#657168]">Local Farming</span>
-                </div>
-                <div>
-                  <span className="block font-heading font-bold text-lg sm:text-xl text-[#153F2C]">Cows & Goats</span>
-                  <span className="text-xs text-[#657168]">Healthy Care</span>
-                </div>
-                <div>
-                  <span className="block font-heading font-bold text-lg sm:text-xl text-[#153F2C]">Hygienic</span>
-                  <span className="text-xs text-[#657168]">Clean Packaging</span>
-                </div>
-              </div>
+        <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl lg:max-w-3xl space-y-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md text-[#5EE59D] text-xs sm:text-sm font-semibold tracking-wider uppercase border border-white/20">
+              <Sparkles className="w-3.5 h-3.5 text-[#5EE59D]" />
+              <span>FRESHNESS ROOTED IN NATURE</span>
             </div>
 
-            {/* Right Column: Hero Visual */}
-            <div className="lg:col-span-5 relative lg:-translate-y-6 xl:-translate-y-10">
-              <div className="relative mx-auto max-w-md lg:max-w-none">
-                {/* Background decorative soft glow */}
-                <div className="absolute -inset-2 bg-gradient-to-tr from-[#236B45]/20 to-[#E9F3E9] rounded-[24px] blur-lg -z-10"></div>
+            <h1 className="font-heading text-[34px] sm:text-[46px] lg:text-[58px] font-bold text-white tracking-tight leading-[1.15] drop-shadow-sm">
+              From Our Farm to Your Family.
+            </h1>
 
-                <div className="overflow-hidden rounded-[16px] border border-[#DCE5DD] shadow-xl bg-white aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/3]">
-                  <img
-                    src="/images/farm-pasture-landscape.jpg"
-                    alt="Healthy dairy cows grazing at Dairy & Pasture"
-                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
+            <p className="text-[16px] sm:text-[18px] text-[#E0EBE2] leading-[1.7] max-w-xl font-normal drop-shadow-sm">
+              Discover our approach to dairy farming, fresh milk production, and careful processing — bringing farm freshness closer to your everyday life in Lahore.
+            </p>
 
-                {/* Floating Info Badge */}
-                <div className="absolute -bottom-5 -left-4 sm:left-4 bg-white/95 backdrop-blur-md p-3.5 sm:p-4 rounded-[12px] border border-[#DCE5DD] shadow-lg flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#E9F3E9] flex items-center justify-center shrink-0">
-                    <Milk className="w-5 h-5 text-[#236B45]" />
-                  </div>
-                  <div>
-                    <span className="block text-xs font-semibold text-[#153F2C]">100% Farm Transparency</span>
-                    <span className="block text-[11px] text-[#657168]">Natural feed & hygienic milking</span>
-                  </div>
-                </div>
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+              <button
+                onClick={() => onNavigate('farm')}
+                className="bg-[#236B45] hover:bg-[#1b5336] text-white text-[15px] font-semibold px-7 py-3.5 rounded-[8px] transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer group"
+              >
+                <span>Explore Our Farm</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+
+              <button
+                onClick={() => onNavigate('process')}
+                className="bg-white/10 hover:bg-white/20 text-white border-2 border-white/80 text-[15px] font-semibold px-7 py-3.5 rounded-[8px] transition-all duration-200 shadow-sm backdrop-blur-md flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>Discover Our Process</span>
+              </button>
+            </div>
+
+            {/* Micro Trust Points */}
+            <div className="pt-6 border-t border-white/20 grid grid-cols-3 gap-4 text-left max-w-xl">
+              <div>
+                <span className="block font-heading font-bold text-lg sm:text-xl text-white">Lahore</span>
+                <span className="text-xs text-[#C5D9C8]">Local Farming</span>
+              </div>
+              <div>
+                <span className="block font-heading font-bold text-lg sm:text-xl text-white">Cows & Goats</span>
+                <span className="text-xs text-[#C5D9C8]">Healthy Care</span>
+              </div>
+              <div>
+                <span className="block font-heading font-bold text-lg sm:text-xl text-white">Hygienic</span>
+                <span className="text-xs text-[#C5D9C8]">Clean Packaging</span>
               </div>
             </div>
           </div>
@@ -178,34 +170,46 @@ export default function Home({ onNavigate }) {
       </section>
 
       {/* SECTION 2: BRAND INTRODUCTION */}
-      <section className="py-20 lg:py-24 bg-white border-b border-[#DCE5DD]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <section className="relative overflow-hidden py-20 lg:py-28 bg-gradient-to-b from-[#EBF4ED] via-white to-[#F4F9F5] border-b border-[#DCE5DD]">
+        {/* Top-Right Decorative Botanical Leaves (CTA Banner Style) */}
+        <BotanicalCornerLeaves position="top-right" />
+
+        {/* Bottom-Left Decorative Botanical Leaves (CTA Banner Style) */}
+        <BotanicalCornerLeaves position="bottom-left" />
+
+        <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             {/* Farm Image Side */}
             <div className="lg:col-span-5 order-2 lg:order-1">
               <div className="relative">
-                <div className="overflow-hidden rounded-[16px] border border-[#DCE5DD] shadow-md aspect-[4/3]">
+                <div className="overflow-hidden rounded-[18px] border border-[#DCE5DD] shadow-lg aspect-[4/3] bg-white">
                   <img
                     src="/images/Img-1.jpg"
                     alt="Dairy cows feeding at Dairy & Pasture farm mangers"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   />
                 </div>
-                <div className="mt-4 p-4 rounded-[12px] bg-[#F8FAF7] border border-[#DCE5DD] text-center">
-                  <p className="text-xs text-[#657168] italic">
-                    "Wholesome dairy begins with healthy animals grazing freely in a peaceful, natural environment."
-                  </p>
+
+                {/* Floating Info Badge on Image */}
+                <div className="absolute -bottom-5 -left-3 sm:left-4 bg-white/95 backdrop-blur-md p-3.5 sm:p-4 rounded-[14px] border border-[#DCE5DD] shadow-xl flex items-center gap-3 max-w-[280px] sm:max-w-none">
+                  <div className="w-10 h-10 rounded-full bg-[#153F2C] flex items-center justify-center shrink-0 shadow-sm text-white">
+                    <CheckCircle2 className="w-5 h-5 text-[#5EE59D]" />
+                  </div>
+                  <div>
+                    <span className="block text-xs font-bold text-[#153F2C]">100% Pure & Fresh</span>
+                    <span className="block text-[11px] text-[#657168]">Responsible animal welfare & hygienic care</span>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Text Side */}
             <div className="lg:col-span-7 order-1 lg:order-2 space-y-6">
-              <div className="inline-block text-xs font-semibold uppercase tracking-wider text-[#236B45] bg-[#E9F3E9] px-3 py-1 rounded-md">
+              <div className="inline-block text-xs font-semibold uppercase tracking-wider text-[#236B45] bg-[#E9F3E9] px-3.5 py-1.5 rounded-full border border-[#236B45]/20">
                 WELCOME TO DAIRY & PASTURE
               </div>
 
-              <h2 className="font-heading text-[28px] sm:text-[36px] font-semibold text-[#153F2C] leading-snug">
+              <h2 className="font-heading text-[28px] sm:text-[36px] lg:text-[40px] font-bold text-[#153F2C] leading-snug tracking-tight">
                 Rooted in the Farm. Focused on Quality.
               </h2>
 
@@ -261,10 +265,10 @@ export default function Home({ onNavigate }) {
               <div className="pt-3">
                 <button
                   onClick={() => onNavigate('about')}
-                  className="bg-[#236B45] hover:bg-[#153F2C] text-white text-[15px] font-semibold px-6 py-3 rounded-[8px] transition-colors inline-flex items-center gap-2 cursor-pointer"
+                  className="bg-[#153F2C] hover:bg-[#236B45] text-white text-[15px] font-semibold px-7 py-3.5 rounded-[8px] transition-all duration-200 shadow-md hover:shadow-lg inline-flex items-center gap-2 cursor-pointer group"
                 >
-                  <span>Discover Our Story</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <span>Explore Our Story</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
             </div>
@@ -358,62 +362,94 @@ export default function Home({ onNavigate }) {
       </section>
 
       {/* SECTION 4: FROM FARM TO PROCESS */}
-      <section className="py-20 lg:py-24 bg-white border-b border-[#DCE5DD]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
-            <div className="max-w-2xl space-y-3">
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#236B45] bg-[#E9F3E9] px-3 py-1 rounded-md">
-                TRANSPARENT WORKFLOW
-              </span>
-              <h2 className="font-heading text-[28px] sm:text-[38px] font-semibold text-[#153F2C]">
-                Carefully Handled at Every Step
-              </h2>
-              <p className="text-[16px] text-[#657168]">
-                From morning milking to chilled storage and hygienic sealing, our process prioritizes purity, temperature control, and physical filtration.
-              </p>
-            </div>
-            <div>
-              <button
-                onClick={() => onNavigate('process')}
-                className="bg-[#236B45] hover:bg-[#153F2C] text-white font-semibold text-[15px] px-6 py-3 rounded-[8px] transition-colors flex items-center gap-2 cursor-pointer shadow-sm"
-              >
-                <span>Explore Our Process</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
+      <section className="relative overflow-hidden py-20 lg:py-28 border-b border-[#DCE5DD]">
+        {/* Background Image with Muted Tone / Dulness */}
+        <img
+          src="/images/Img-14.jpg"
+          alt="Dairy & Pasture pasture grazing"
+          className="absolute inset-0 w-full h-full object-cover brightness-[0.65] contrast-[0.9]"
+        />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {farmProcessSteps.map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-[#F8FAF7] border border-[#DCE5DD] rounded-[16px] p-5 hover:border-[#236B45] transition-colors flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="font-heading font-bold text-xl text-[#236B45]">
-                      {item.step}
-                    </span>
-                    <div className="w-10 h-10 rounded-full bg-white border border-[#DCE5DD] flex items-center justify-center shadow-xs">
-                      {item.icon}
-                    </div>
-                  </div>
-                  <div className="rounded-[10px] overflow-hidden aspect-[4/3] mb-4 border border-[#DCE5DD] bg-white flex items-center justify-center">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className={`w-full h-full ${item.step === '04' ? 'object-contain p-1.5' : 'object-cover'}`}
-                    />
-                  </div>
-                  <h3 className="font-heading font-semibold text-[18px] text-[#153F2C] mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-[#657168] leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
+        {/* Deeper Muted Gradient Overlay for Increased Dulness and High Contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#04130A]/98 via-[#061A0F]/92 to-[#04130A]/88" />
+
+        <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+            {/* Left Column: Heading, Subtitle, CTA */}
+            <div className="lg:col-span-4 space-y-5">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md text-[#5EE59D] text-xs font-semibold tracking-wider uppercase border border-white/20">
+                <Layers className="w-3.5 h-3.5 text-[#5EE59D]" />
+                <span>TRANSPARENT WORKFLOW</span>
               </div>
-            ))}
+
+              <h2 className="font-heading text-[32px] sm:text-[40px] lg:text-[44px] font-bold text-white tracking-tight leading-[1.15] drop-shadow-sm">
+                Carefully Handled <br className="hidden sm:inline" />
+                at Every Step
+              </h2>
+
+              <p className="text-[15px] sm:text-[16px] text-[#E0EBE2] leading-relaxed max-w-sm drop-shadow-sm font-normal">
+                From morning milking to chilled storage and hygienic packing, our process ensures purity, temperature control, and physical filtration.
+              </p>
+
+              <div className="pt-2">
+                <button
+                  onClick={() => onNavigate('process')}
+                  className="bg-[#236B45] hover:bg-[#1b5336] text-white font-semibold text-[15px] px-7 py-3.5 rounded-[8px] transition-all duration-200 shadow-lg hover:shadow-xl inline-flex items-center gap-2 cursor-pointer group"
+                >
+                  <span>Explore Our Process</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+            </div>
+
+            {/* Right Column: 4 Step Cards Sequence with Arrows */}
+            <div className="lg:col-span-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:flex xl:items-stretch gap-4 xl:gap-2.5">
+                {farmProcessSteps.map((item, idx) => (
+                  <React.Fragment key={idx}>
+                    <div className="flex-1 bg-white/95 backdrop-blur-md border border-white/80 rounded-[18px] p-4 flex flex-col justify-between shadow-xl hover:border-[#236B45] hover:shadow-2xl transition-all group">
+                      <div>
+                        {/* Number and Outline Icon */}
+                        <div className="flex items-center justify-between mb-3">
+                          <span className="font-heading font-bold text-xl text-[#153F2C]">
+                            {item.step}
+                          </span>
+                          <div className="w-7 h-7 flex items-center justify-center text-[#236B45]">
+                            {item.icon}
+                          </div>
+                        </div>
+
+                        {/* Image */}
+                        <div className="rounded-[12px] overflow-hidden aspect-[4/3] mb-3 bg-white border border-[#E3EBE4] flex items-center justify-center">
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className={`w-full h-full ${item.step === '04' ? 'object-contain p-2' : 'object-cover'} group-hover:scale-105 transition-transform duration-500`}
+                          />
+                        </div>
+
+                        {/* Title */}
+                        <h3 className="font-heading font-bold text-[15px] text-[#153F2C] mb-1.5 leading-snug">
+                          {item.title}
+                        </h3>
+
+                        {/* Description */}
+                        <p className="text-xs text-[#657168] leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Arrow between cards on desktop */}
+                    {idx < farmProcessSteps.length - 1 && (
+                      <div className="hidden xl:flex items-center justify-center text-[#5EE59D] px-0.5 shrink-0 drop-shadow-sm">
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -482,6 +518,119 @@ export default function Home({ onNavigate }) {
               <span>Explore Our Process & Full Product Range</span>
               <ArrowRight className="w-4 h-4" />
             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5B: OUR IMPACT IN NUMBERS (FULL-WIDTH COUNTER BANNER) */}
+      <section className="relative overflow-hidden py-20 lg:py-28 border-b border-[#DCE5DD]">
+        {/* Background Image Img-12.jpg */}
+        <img
+          src="/images/Img-12.jpg"
+          alt="Dairy & Pasture farm landscape"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        {/* Increased Deep Green Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#062013]/94 via-[#0A331D]/84 to-[#062013]/94" />
+
+        <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Centered Section Header */}
+          <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-[#5EE59D] text-xs font-semibold tracking-wider uppercase border border-white/15 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-[#5EE59D]" />
+              <span>OUR IMPACT IN NUMBERS</span>
+            </div>
+
+            <h2 className="font-heading text-[28px] sm:text-[38px] lg:text-[42px] font-bold text-white tracking-tight leading-tight">
+              Measurable Purity & Everyday Dedication
+            </h2>
+
+            <p className="text-[15px] sm:text-[16px] text-[#D3E4D7] leading-relaxed font-normal">
+              From open pasture care and natural green feeding to hygienic cold-chain handling, every milestone reflects our promise to Lahore families.
+            </p>
+          </div>
+
+          {/* 4 Separate Impact Cards with Reduced Number Font Size */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+            {/* Card 1: Healthy Animals */}
+            <div className="bg-white/95 backdrop-blur-md rounded-[22px] sm:rounded-[26px] border border-white/90 p-6 sm:p-7 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center sm:items-start text-center sm:text-left group">
+              <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-[16px] bg-[#E9F3E9] text-[#236B45] flex items-center justify-center border border-[#236B45]/20 shadow-xs mb-4 group-hover:scale-105 group-hover:bg-[#236B45] group-hover:text-white transition-all duration-300">
+                <svg
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-7 h-7 sm:w-8 sm:h-8"
+                >
+                  <path d="M7 11 C7 7 11 5 16 5 C21 5 25 7 25 11 C25 14 23 16 23 18 L23 23 C23 25 21 27 19 27 L13 27 C11 27 9 25 9 23 L9 18 C9 16 7 14 7 11 Z" />
+                  <path d="M5 9 L2 11 L5 13" />
+                  <path d="M27 9 L30 11 L27 13" />
+                  <circle cx="12" cy="13" r="1.5" fill="currentColor" stroke="none" />
+                  <circle cx="20" cy="13" r="1.5" fill="currentColor" stroke="none" />
+                  <path d="M12 21 C14 22.5 18 22.5 20 21" />
+                </svg>
+              </div>
+              <div className="font-heading font-extrabold text-[26px] sm:text-[30px] lg:text-[34px] text-[#153F2C] tracking-tight leading-none">
+                <Counter end={500} suffix="+" />
+              </div>
+              <h3 className="font-heading font-bold text-[16px] sm:text-[17px] text-[#153F2C] mt-2">
+                Healthy Animals
+              </h3>
+              <p className="text-xs sm:text-[13px] text-[#657168] leading-relaxed mt-1 font-normal">
+                Cows & dairy goats thriving in spacious open-air green paddocks.
+              </p>
+            </div>
+
+            {/* Card 2: Natural Feed */}
+            <div className="bg-white/95 backdrop-blur-md rounded-[22px] sm:rounded-[26px] border border-white/90 p-6 sm:p-7 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center sm:items-start text-center sm:text-left group">
+              <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-[16px] bg-[#E9F3E9] text-[#236B45] flex items-center justify-center border border-[#236B45]/20 shadow-xs mb-4 group-hover:scale-105 group-hover:bg-[#236B45] group-hover:text-white transition-all duration-300">
+                <Leaf className="w-7 h-7 sm:w-8 sm:h-8" />
+              </div>
+              <div className="font-heading font-extrabold text-[26px] sm:text-[30px] lg:text-[34px] text-[#153F2C] tracking-tight leading-none">
+                <Counter end={100} suffix="%" />
+              </div>
+              <h3 className="font-heading font-bold text-[16px] sm:text-[17px] text-[#153F2C] mt-2">
+                Natural Green Feed
+              </h3>
+              <p className="text-xs sm:text-[13px] text-[#657168] leading-relaxed mt-1 font-normal">
+                Nutritious seasonal green forage with strictly zero growth hormones.
+              </p>
+            </div>
+
+            {/* Card 3: Daily Fresh Yield */}
+            <div className="bg-white/95 backdrop-blur-md rounded-[22px] sm:rounded-[26px] border border-white/90 p-6 sm:p-7 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center sm:items-start text-center sm:text-left group">
+              <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-[16px] bg-[#E9F3E9] text-[#236B45] flex items-center justify-center border border-[#236B45]/20 shadow-xs mb-4 group-hover:scale-105 group-hover:bg-[#236B45] group-hover:text-white transition-all duration-300">
+                <Droplets className="w-7 h-7 sm:w-8 sm:h-8" />
+              </div>
+              <div className="font-heading font-extrabold text-[26px] sm:text-[30px] lg:text-[34px] text-[#153F2C] tracking-tight leading-none">
+                <Counter end={1200} suffix="+ L" />
+              </div>
+              <h3 className="font-heading font-bold text-[16px] sm:text-[17px] text-[#153F2C] mt-2">
+                Daily Fresh Yield
+              </h3>
+              <p className="text-xs sm:text-[13px] text-[#657168] leading-relaxed mt-1 font-normal">
+                Filtered, rapid-chilled, and packaged fresh morning & evening.
+              </p>
+            </div>
+
+            {/* Card 4: Years of Trust */}
+            <div className="bg-white/95 backdrop-blur-md rounded-[22px] sm:rounded-[26px] border border-white/90 p-6 sm:p-7 shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center sm:items-start text-center sm:text-left group">
+              <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-[16px] bg-[#E9F3E9] text-[#236B45] flex items-center justify-center border border-[#236B45]/20 shadow-xs mb-4 group-hover:scale-105 group-hover:bg-[#236B45] group-hover:text-white transition-all duration-300">
+                <ShieldCheck className="w-7 h-7 sm:w-8 sm:h-8" />
+              </div>
+              <div className="font-heading font-extrabold text-[26px] sm:text-[30px] lg:text-[34px] text-[#153F2C] tracking-tight leading-none">
+                <Counter end={5} suffix="+ Years" />
+              </div>
+              <h3 className="font-heading font-bold text-[16px] sm:text-[17px] text-[#153F2C] mt-2">
+                Years of Trust
+              </h3>
+              <p className="text-xs sm:text-[13px] text-[#657168] leading-relaxed mt-1 font-normal">
+                Dedicated doorstep delivery and purity trusted across Lahore.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -638,6 +787,9 @@ export default function Home({ onNavigate }) {
         </div>
       </section>
 
+      {/* CTA BANNER (ABOVE FAQS) */}
+      <CtaBanner onNavigate={onNavigate} />
+
       {/* SECTION 8: FAQS (INTERACTIVE ACCORDION) */}
       <section className="py-20 lg:py-24 bg-[#F8FAF7] border-b border-[#DCE5DD]">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6">
@@ -683,42 +835,6 @@ export default function Home({ onNavigate }) {
                 </div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 9: CONTACT CTA */}
-      <section className="py-20 lg:py-24 bg-[#153F2C] text-white">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#236B45] text-white text-xs font-semibold uppercase tracking-wider">
-              <span>DIRECT FARM ACCESS</span>
-            </div>
-
-            <h2 className="font-heading text-[32px] sm:text-[44px] font-bold text-white tracking-tight leading-tight">
-              Let's Connect with Dairy & Pasture
-            </h2>
-
-            <p className="text-[16px] sm:text-[18px] text-[#E9F3E9]/80 leading-relaxed">
-              Have questions about our farm, products, or dairy processing? Get in touch with our team in Lahore. We are happy to answer your inquiries directly.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-              <button
-                onClick={() => onNavigate('contact')}
-                className="w-full sm:w-auto bg-[#236B45] hover:bg-[#2e8255] text-white text-[15px] font-semibold px-8 py-3.5 rounded-[8px] transition-colors cursor-pointer shadow-md"
-              >
-                Contact Us
-              </button>
-
-              <a
-                href="tel:03015099459"
-                className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/20 text-[15px] font-semibold px-8 py-3.5 rounded-[8px] transition-colors flex items-center justify-center gap-2"
-              >
-                <Phone className="w-4 h-4 text-[#E9F3E9]" />
-                <span>Call Us: 0301-5099459</span>
-              </a>
-            </div>
           </div>
         </div>
       </section>

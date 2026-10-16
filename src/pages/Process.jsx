@@ -16,6 +16,7 @@ import {
   Boxes,
   Activity
 } from 'lucide-react';
+import CtaBanner from '../components/CtaBanner';
 
 export default function Process({ onNavigate }) {
   const [openFaq, setOpenFaq] = useState(0);
@@ -153,27 +154,49 @@ export default function Process({ onNavigate }) {
 
   return (
     <div className="w-full bg-[#F8FAF7]">
-      {/* SECTION 1: PROCESS HERO */}
-      <section className="relative overflow-hidden py-16 lg:py-24 bg-white border-b border-[#DCE5DD]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <div className="max-w-3xl mx-auto text-center space-y-4">
-            <span className="inline-block text-xs font-semibold uppercase tracking-wider text-[#236B45] bg-[#E9F3E9] px-3.5 py-1.5 rounded-full border border-[#236B45]/20">
-              FROM PASTURE TO PACKET
-            </span>
-            <h1 className="font-heading text-[32px] sm:text-[46px] lg:text-[52px] font-bold text-[#153F2C] tracking-tight leading-[1.2]">
+      {/* SECTION 1: PROCESS HERO WITH BACKGROUND IMAGE */}
+      <section className="relative overflow-hidden py-16 sm:py-20 lg:py-28 border-b border-[#DCE5DD]">
+        {/* Background Image */}
+        <img
+          src="/images/Img-7.jpeg"
+          alt="Hygienic stainless steel dairy processing facility"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        {/* Overlay with Opacity for Clear Text Visibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#07190F]/90 via-[#07190F]/75 to-[#07190F]/50 sm:to-[#07190F]/40" />
+
+        <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl lg:max-w-3xl space-y-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md text-[#5EE59D] text-xs sm:text-sm font-semibold tracking-wider uppercase border border-white/20">
+              <Sparkles className="w-3.5 h-3.5 text-[#5EE59D]" />
+              <span>FROM PASTURE TO PACKET</span>
+            </div>
+
+            <h1 className="font-heading text-[34px] sm:text-[46px] lg:text-[56px] font-bold text-white tracking-tight leading-[1.15] drop-shadow-sm">
               From Farm to Carefully Packaged Dairy
             </h1>
-            <p className="text-[16px] sm:text-[18px] text-[#657168] leading-relaxed">
+
+            <p className="text-[16px] sm:text-[18px] text-[#E0EBE2] leading-[1.7] max-w-xl font-normal drop-shadow-sm">
               Explore the stages of milk collection, quality checks, processing, and packaging that shape the dairy journey in Lahore, Pakistan.
             </p>
-          </div>
 
-          <div className="mt-12 rounded-[16px] overflow-hidden border border-[#DCE5DD] shadow-lg aspect-[16/9] sm:aspect-[21/9]">
-            <img
-              src="/images/Img-7.jpeg"
-              alt="Hygienic stainless steel dairy processing facility"
-              className="w-full h-full object-cover"
-            />
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+              <button
+                onClick={() => onNavigate('farm')}
+                className="bg-[#236B45] hover:bg-[#1b5336] text-white text-[15px] font-semibold px-7 py-3.5 rounded-[8px] transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer group"
+              >
+                <span>Explore Our Farm</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+
+              <button
+                onClick={() => onNavigate('contact')}
+                className="bg-white/10 hover:bg-white/20 text-white border-2 border-white/80 text-[15px] font-semibold px-7 py-3.5 rounded-[8px] transition-all duration-200 shadow-sm backdrop-blur-md flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>Ask a Question</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -275,26 +298,36 @@ export default function Process({ onNavigate }) {
       </section>
 
       {/* SECTION 4: QUALITY AND PACKAGING */}
-      <section className="py-20 lg:py-24 bg-[#F8FAF7] border-b border-[#DCE5DD]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+      <section className="relative overflow-hidden py-20 lg:py-28 border-b border-[#DCE5DD]">
+        {/* Background Image */}
+        <img
+          src="/images/pak-dairy-cans.jpg"
+          alt="Dairy & Pasture milk cans and storage"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        {/* Gradient Overlay for Rich Visuals and Contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#07190F]/90 via-[#07190F]/82 to-[#07190F]/92" />
+
+        <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#236B45] bg-[#E9F3E9] px-3 py-1 rounded-md">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-[#5EE59D] text-xs font-semibold uppercase tracking-wider border border-white/15 backdrop-blur-sm">
               STANDARDS
             </span>
-            <h2 className="font-heading text-[28px] sm:text-[38px] font-semibold text-[#153F2C]">
+            <h2 className="font-heading text-[28px] sm:text-[38px] font-bold text-white tracking-tight">
               Attention to Every Detail
             </h2>
-            <p className="text-[16px] text-[#657168]">
+            <p className="text-[16px] text-[#D3E4D7] leading-relaxed">
               Three essential safeguards that protect the purity, flavor, and shelf freshness of our dairy batches.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-[16px] p-8 border border-[#DCE5DD] shadow-xs space-y-3">
-              <div className="w-12 h-12 rounded-full bg-[#E9F3E9] flex items-center justify-center mb-4">
+            <div className="bg-white/95 backdrop-blur-md rounded-[18px] p-8 border border-white/80 shadow-xl hover:border-[#236B45] hover:shadow-2xl transition-all group space-y-3">
+              <div className="w-12 h-12 rounded-full bg-[#E9F3E9] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
                 <ShieldCheck className="w-6 h-6 text-[#236B45]" />
               </div>
-              <h3 className="font-heading font-semibold text-xl text-[#153F2C]">
+              <h3 className="font-heading font-bold text-xl text-[#153F2C]">
                 Clean Handling
               </h3>
               <p className="text-sm text-[#657168] leading-relaxed">
@@ -302,11 +335,11 @@ export default function Process({ onNavigate }) {
               </p>
             </div>
 
-            <div className="bg-white rounded-[16px] p-8 border border-[#DCE5DD] shadow-xs space-y-3">
-              <div className="w-12 h-12 rounded-full bg-[#E9F3E9] flex items-center justify-center mb-4">
+            <div className="bg-white/95 backdrop-blur-md rounded-[18px] p-8 border border-white/80 shadow-xl hover:border-[#236B45] hover:shadow-2xl transition-all group space-y-3">
+              <div className="w-12 h-12 rounded-full bg-[#E9F3E9] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
                 <Thermometer className="w-6 h-6 text-[#236B45]" />
               </div>
-              <h3 className="font-heading font-semibold text-xl text-[#153F2C]">
+              <h3 className="font-heading font-bold text-xl text-[#153F2C]">
                 Appropriate Processing
               </h3>
               <p className="text-sm text-[#657168] leading-relaxed">
@@ -314,11 +347,11 @@ export default function Process({ onNavigate }) {
               </p>
             </div>
 
-            <div className="bg-white rounded-[16px] p-8 border border-[#DCE5DD] shadow-xs space-y-3">
-              <div className="w-12 h-12 rounded-full bg-[#E9F3E9] flex items-center justify-center mb-4">
+            <div className="bg-white/95 backdrop-blur-md rounded-[18px] p-8 border border-white/80 shadow-xl hover:border-[#236B45] hover:shadow-2xl transition-all group space-y-3">
+              <div className="w-12 h-12 rounded-full bg-[#E9F3E9] flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
                 <PackageCheck className="w-6 h-6 text-[#236B45]" />
               </div>
-              <h3 className="font-heading font-semibold text-xl text-[#153F2C]">
+              <h3 className="font-heading font-bold text-xl text-[#153F2C]">
                 Food-Grade Packaging
               </h3>
               <p className="text-sm text-[#657168] leading-relaxed">
@@ -445,6 +478,9 @@ export default function Process({ onNavigate }) {
         </div>
       </section>
 
+      {/* CTA BANNER (ABOVE FAQS) */}
+      <CtaBanner onNavigate={onNavigate} />
+
       {/* SECTION 7: PROCESS FAQS (INTERACTIVE ACCORDION) */}
       <section className="py-20 lg:py-24 bg-white border-b border-[#DCE5DD]">
         <div className="max-w-[900px] mx-auto px-4 sm:px-6">
@@ -489,27 +525,6 @@ export default function Process({ onNavigate }) {
                 </div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 8: CONTACT CTA */}
-      <section className="py-20 bg-[#153F2C] text-white">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 text-center space-y-6">
-          <h2 className="font-heading text-[30px] sm:text-[40px] font-bold text-white tracking-tight">
-            Want to Learn More About Our Dairy Products?
-          </h2>
-          <p className="text-base sm:text-lg text-[#E9F3E9]/80 max-w-xl mx-auto">
-            Connect with our Lahore team to ask about today's milking batch, delivery schedules, or product availability.
-          </p>
-          <div className="pt-2">
-            <button
-              onClick={() => onNavigate('contact')}
-              className="bg-[#236B45] hover:bg-[#2e8255] text-white font-semibold text-[15px] px-8 py-3.5 rounded-[8px] transition-colors cursor-pointer shadow-md inline-flex items-center gap-2"
-            >
-              <span>Contact Us</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
           </div>
         </div>
       </section>

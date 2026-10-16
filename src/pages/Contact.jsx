@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { 
-  Phone, 
-  MapPin, 
-  MessageCircle, 
-  Send, 
-  CheckCircle2, 
-  AlertCircle, 
-  Clock, 
+import {
+  Phone,
+  MapPin,
+  MessageCircle,
+  Send,
+  CheckCircle2,
+  AlertCircle,
+  Clock,
   Building2,
-  Sparkles
+  Sparkles,
+  ArrowRight
 } from 'lucide-react';
 import InstagramIcon from '../components/InstagramIcon';
 
@@ -84,19 +85,52 @@ export default function Contact({ preselectedInquiry = 'General Inquiry' }) {
 
   return (
     <div className="w-full bg-[#F8FAF7]">
-      {/* SECTION 1: CONTACT HERO */}
-      <section className="py-16 lg:py-20 bg-white border-b border-[#DCE5DD]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <div className="max-w-3xl mx-auto text-center space-y-4">
-            <span className="inline-block text-xs font-semibold uppercase tracking-wider text-[#236B45] bg-[#E9F3E9] px-3.5 py-1.5 rounded-full border border-[#236B45]/20">
-              WE ARE HERE TO HELP
-            </span>
-            <h1 className="font-heading text-[32px] sm:text-[46px] lg:text-[52px] font-bold text-[#153F2C] tracking-tight leading-[1.2]">
+      {/* SECTION 1: CONTACT HERO WITH BACKGROUND IMAGE */}
+      <section className="relative overflow-hidden py-16 sm:py-20 lg:py-28 border-b border-[#DCE5DD]">
+        {/* Background Image */}
+        <img
+          src="/images/hero-cows.jpg"
+          alt="Dairy & Pasture farm contact"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        {/* Overlay with Opacity for Clear Text Visibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#07190F]/90 via-[#07190F]/75 to-[#07190F]/50 sm:to-[#07190F]/40" />
+
+        <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="max-w-2xl lg:max-w-3xl space-y-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md text-[#5EE59D] text-xs sm:text-sm font-semibold tracking-wider uppercase border border-white/20">
+              <Sparkles className="w-3.5 h-3.5 text-[#5EE59D]" />
+              <span>WE ARE HERE TO HELP</span>
+            </div>
+
+            <h1 className="font-heading text-[34px] sm:text-[46px] lg:text-[56px] font-bold text-white tracking-tight leading-[1.15] drop-shadow-sm">
               Get in Touch with Dairy & Pasture
             </h1>
-            <p className="text-[16px] sm:text-[18px] text-[#657168] leading-relaxed">
+
+            <p className="text-[16px] sm:text-[18px] text-[#E0EBE2] leading-[1.7] max-w-xl font-normal drop-shadow-sm">
               Have a question about our farm, dairy products, or processing practices? We would be happy to hear from you.
             </p>
+
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href="tel:03015099459"
+                className="bg-[#236B45] hover:bg-[#1b5336] text-white text-[15px] font-semibold px-7 py-3.5 rounded-[8px] transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <Phone className="w-4 h-4" />
+                <span>0301-5099459</span>
+              </a>
+
+              <a
+                href={whatsappDirectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#25D366] hover:bg-[#20ba5a] text-white text-[15px] font-semibold px-7 py-3.5 rounded-[8px] transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>WhatsApp Direct</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -234,9 +268,8 @@ export default function Contact({ preselectedInquiry = 'General Inquiry' }) {
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                         placeholder="e.g. Muhammad Ali"
-                        className={`w-full px-4 py-3 rounded-[8px] bg-white border text-sm text-[#202820] placeholder-gray-400 focus:outline-none transition-colors ${
-                          errors.fullName ? 'border-red-500 focus:border-red-500' : 'border-[#DCE5DD] focus:border-[#236B45]'
-                        }`}
+                        className={`w-full px-4 py-3 rounded-[8px] bg-white border text-sm text-[#202820] placeholder-gray-400 focus:outline-none transition-colors ${errors.fullName ? 'border-red-500 focus:border-red-500' : 'border-[#DCE5DD] focus:border-[#236B45]'
+                          }`}
                       />
                       {errors.fullName && (
                         <p className="text-xs text-red-500 mt-1 flex items-center gap-1">
@@ -257,9 +290,8 @@ export default function Contact({ preselectedInquiry = 'General Inquiry' }) {
                         value={formData.phoneNumber}
                         onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })}
                         placeholder="e.g. 0300-1234567"
-                        className={`w-full px-4 py-3 rounded-[8px] bg-white border text-sm text-[#202820] placeholder-gray-400 focus:outline-none transition-colors ${
-                          errors.phoneNumber ? 'border-red-500 focus:border-red-500' : 'border-[#DCE5DD] focus:border-[#236B45]'
-                        }`}
+                        className={`w-full px-4 py-3 rounded-[8px] bg-white border text-sm text-[#202820] placeholder-gray-400 focus:outline-none transition-colors ${errors.phoneNumber ? 'border-red-500 focus:border-red-500' : 'border-[#DCE5DD] focus:border-[#236B45]'
+                          }`}
                       />
                       {errors.phoneNumber && (
                         <p className="text-xs text-red-500 mt-1 flex items-center gap-1">
@@ -280,9 +312,8 @@ export default function Contact({ preselectedInquiry = 'General Inquiry' }) {
                         value={formData.emailAddress}
                         onChange={(e) => setFormData({ ...formData, emailAddress: e.target.value })}
                         placeholder="e.g. yourname@example.com"
-                        className={`w-full px-4 py-3 rounded-[8px] bg-white border text-sm text-[#202820] placeholder-gray-400 focus:outline-none transition-colors ${
-                          errors.emailAddress ? 'border-red-500 focus:border-red-500' : 'border-[#DCE5DD] focus:border-[#236B45]'
-                        }`}
+                        className={`w-full px-4 py-3 rounded-[8px] bg-white border text-sm text-[#202820] placeholder-gray-400 focus:outline-none transition-colors ${errors.emailAddress ? 'border-red-500 focus:border-red-500' : 'border-[#DCE5DD] focus:border-[#236B45]'
+                          }`}
                       />
                       {errors.emailAddress && (
                         <p className="text-xs text-red-500 mt-1 flex items-center gap-1">
@@ -322,9 +353,8 @@ export default function Contact({ preselectedInquiry = 'General Inquiry' }) {
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         placeholder="Write your questions about milk availability, delivery, or farm practices..."
-                        className={`w-full px-4 py-3 rounded-[8px] bg-white border text-sm text-[#202820] placeholder-gray-400 focus:outline-none transition-colors resize-none ${
-                          errors.message ? 'border-red-500 focus:border-red-500' : 'border-[#DCE5DD] focus:border-[#236B45]'
-                        }`}
+                        className={`w-full px-4 py-3 rounded-[8px] bg-white border text-sm text-[#202820] placeholder-gray-400 focus:outline-none transition-colors resize-none ${errors.message ? 'border-red-500 focus:border-red-500' : 'border-[#DCE5DD] focus:border-[#236B45]'
+                          }`}
                       ></textarea>
                       {errors.message && (
                         <p className="text-xs text-red-500 mt-1 flex items-center gap-1">
@@ -425,36 +455,89 @@ export default function Contact({ preselectedInquiry = 'General Inquiry' }) {
         </div>
       </section>
 
-      {/* SECTION 5: WHATSAPP CONTACT BANNER */}
-      <section className="py-16 bg-[#E9F3E9] border-b border-[#236B45]/20">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
-          <div className="bg-white rounded-[20px] border border-[#236B45]/30 p-8 sm:p-12 shadow-sm flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="space-y-3 max-w-xl text-center md:text-left">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#236B45]">
-                PREFER INSTANT CHAT?
-              </span>
-              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-[#153F2C]">
-                Connect Directly on WhatsApp
-              </h2>
-              <p className="text-sm text-[#657168] leading-relaxed">
-                Send us a direct message on WhatsApp with your questions about fresh cow milk, goat milk, current batch availability, or farm visits.
-              </p>
-            </div>
+      {/* SECTION 5: WHATSAPP CONTACT BANNER (STYLED LIKE CTABANNER) */}
+      <div className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-[1360px] mx-auto">
+        <section className="relative overflow-hidden bg-[#0C3522] text-white rounded-[28px] sm:rounded-[40px] border border-[#1C5438] shadow-xl">
+          {/* Botanical Leaves - Left Side */}
+          <div className="absolute left-0 top-0 bottom-0 w-40 sm:w-60 md:w-80 pointer-events-none select-none overflow-hidden z-0">
+            <svg
+              viewBox="0 0 240 200"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-full h-full object-cover -translate-x-6 sm:-translate-x-4 opacity-75"
+            >
+              <path d="M-20 180 C30 150 70 90 35 20 C5 70 -5 130 -20 180 Z" fill="#27784E" />
+              <path d="M-15 175 C18 135 48 85 30 25" stroke="#1B5537" strokeWidth="2" strokeLinecap="round" />
+              <path d="M0 190 C60 170 120 120 100 40 C60 80 20 140 0 190 Z" fill="#328D5E" />
+              <path d="M5 185 C45 155 85 110 95 45" stroke="#1F613E" strokeWidth="2.5" strokeLinecap="round" />
+              <path d="M20 200 C80 200 150 160 155 90 C110 115 55 160 20 200 Z" fill="#2A7E53" />
+              <path d="M25 198 C70 185 120 155 150 95" stroke="#1B5537" strokeWidth="2" strokeLinecap="round" />
+              <path d="M-30 110 C10 100 50 60 30 0 C0 30 -20 70 -30 110 Z" fill="#1E5C3B" opacity="0.8" />
+            </svg>
+          </div>
 
-            <div>
-              <a
-                href={whatsappDirectUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold text-base px-8 py-4 rounded-[8px] transition-all flex items-center justify-center gap-3 shadow-md hover:shadow-lg cursor-pointer group"
-              >
-                <MessageCircle className="w-6 h-6 fill-white text-[#25D366] group-hover:scale-110 transition-transform" />
-                <span>Chat on WhatsApp (+92 301 5099459)</span>
-              </a>
+          {/* Botanical Leaves - Right Side */}
+          <div className="absolute right-0 top-0 bottom-0 w-40 sm:w-60 md:w-80 pointer-events-none select-none overflow-hidden z-0">
+            <svg
+              viewBox="0 0 240 200"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-full h-full object-cover translate-x-6 sm:translate-x-4 scale-x-[-1] opacity-75"
+            >
+              <path d="M-20 180 C30 150 70 90 35 20 C5 70 -5 130 -20 180 Z" fill="#27784E" />
+              <path d="M-15 175 C18 135 48 85 30 25" stroke="#1B5537" strokeWidth="2" strokeLinecap="round" />
+              <path d="M0 190 C60 170 120 120 100 40 C60 80 20 140 0 190 Z" fill="#328D5E" />
+              <path d="M5 185 C45 155 85 110 95 45" stroke="#1F613E" strokeWidth="2.5" strokeLinecap="round" />
+              <path d="M20 200 C80 200 150 160 155 90 C110 115 55 160 20 200 Z" fill="#2A7E53" />
+              <path d="M25 198 C70 185 120 155 150 95" stroke="#1B5537" strokeWidth="2" strokeLinecap="round" />
+              <path d="M-30 110 C10 100 50 60 30 0 C0 30 -20 70 -30 110 Z" fill="#1E5C3B" opacity="0.8" />
+            </svg>
+          </div>
+
+          {/* Content Container with increased padding */}
+          <div className="relative z-10 max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-12 py-16 sm:py-20 lg:py-24">
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 lg:gap-12">
+              {/* Left Side */}
+              <div className="space-y-3.5 max-w-2xl">
+                <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/10 text-[#5EE59D] text-[11px] sm:text-xs font-semibold uppercase tracking-wider border border-white/15 backdrop-blur-sm">
+                  <MessageCircle className="w-3.5 h-3.5 text-[#5EE59D]" />
+                  <span>PREFER INSTANT CHAT? — LAHORE</span>
+                </div>
+
+                <h2 className="font-heading text-[28px] sm:text-[36px] lg:text-[42px] font-bold text-white tracking-tight leading-[1.2]">
+                  Connect Directly on WhatsApp
+                </h2>
+
+                <p className="text-[15px] sm:text-[17px] text-[#D3E4D7] leading-relaxed font-normal">
+                  Send us a direct message on WhatsApp with your questions about fresh cow milk, goat milk, current batch availability, or farm visits.
+                </p>
+              </div>
+
+              {/* Right Side Buttons */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 shrink-0">
+                <a
+                  href={whatsappDirectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white hover:bg-[#F2F7F3] text-[#0C3522] text-[15px] font-semibold px-7 sm:px-8 py-3.5 rounded-[8px] transition-all duration-200 shadow-sm hover:shadow-md flex items-center justify-center gap-2.5 cursor-pointer group"
+                >
+                  <MessageCircle className="w-4 h-4 text-[#25D366] fill-[#25D366]" />
+                  <span>Chat on WhatsApp</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+
+                <a
+                  href="tel:03015099459"
+                  className="bg-transparent hover:bg-white/10 text-white border border-white/60 hover:border-white text-[15px] font-semibold px-7 sm:px-8 py-3.5 rounded-[8px] transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <Phone className="w-4 h-4" />
+                  <span>0301-5099459</span>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 }
