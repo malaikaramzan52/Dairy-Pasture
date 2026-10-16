@@ -340,7 +340,7 @@ export default function Farm({ onNavigate }) {
             Discover What Happens After Milk Collection
           </h2>
           <p className="text-base sm:text-lg text-[#E9F3E9]/80 max-w-2xl mx-auto">
-            Once milk is harvested, it begins a carefully monitored journey through quality testing, sanitary filtration, chilling, and hygienic bottling.
+            Once milk is harvested, it begins a carefully monitored journey through quality testing, sanitary filtration, chilling, and hygienic sealed packaging.
           </p>
           <div className="pt-2">
             <button

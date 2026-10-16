@@ -40,7 +40,7 @@ export default function About({ onNavigate }) {
     },
     {
       title: 'Cleanliness',
-      desc: 'Scrupulous sanitation of milking equipment, holding tanks, and bottling systems every single day.',
+      desc: 'Scrupulous sanitation of milking equipment, holding tanks, and packaging systems every single day.',
       icon: <Droplet className="w-5 h-5 text-[#236B45]" />
     },
     {
@@ -238,7 +238,7 @@ export default function About({ onNavigate }) {
                   INTEGRATED HARMONY
                 </span>
                 <h2 className="font-heading text-[28px] sm:text-[36px] font-semibold text-[#153F2C]">
-                  From Green Pastures to Clean Bottles
+                  From Green Pastures to Clean Packets
                 </h2>
                 <p className="text-sm sm:text-base text-[#657168] leading-relaxed max-w-2xl">
                   The link between farm health and processing cleanliness cannot be separated. By caring for our cows and goats in Lahore with balanced feeds and humane routines, milk begins with prime natural composition. Our sanitary filtration and rapid chilling protect that wholesome baseline all the way to sealing.

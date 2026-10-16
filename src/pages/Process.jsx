@@ -52,14 +52,14 @@ export default function Process({ onNavigate }) {
     {
       step: '05',
       title: 'Rapid Chilling & Storage',
-      desc: 'Quickly cooled to below 4°C in insulated bulk milk coolers. Immediate chilling halts bacterial multiplication and retains natural consistency.',
-      image: '/images/pakcging.png',
-      tag: 'Cold Chain (< 4°C)'
+      desc: 'Quickly cooled to below 2°C in insulated bulk milk coolers. Immediate chilling halts bacterial multiplication and retains natural consistency.',
+      image: '/images/freezr.png',
+      tag: 'Cold Chain (< 2°C)'
     },
     {
       step: '06',
       title: 'Filling, Sealing & Packaging',
-      desc: 'Transferred into clean, food-safe bottles with hermetic tamper-evident caps to preserve wholesome quality until it reaches your kitchen.',
+      desc: 'Filled into clean, food-grade sealed packets and pouches to preserve wholesome quality and freshness until it reaches your kitchen.',
       image: '/images/packets.png',
       tag: 'Hygienic Sealing'
     }
@@ -136,11 +136,11 @@ export default function Process({ onNavigate }) {
     },
     {
       q: 'How is milk packaged for consumer safety?',
-      a: 'Once chilled and processed, milk is bottled into clean, food-safe containers and sealed with tamper-evident caps. This preserves freshness, stops airborne contaminants from entering, and prepares the product for temperature-maintained delivery.'
+      a: 'Once chilled and processed, milk is packed into clean, food-grade sealed packets and pouches. This preserves freshness, stops airborne contaminants from entering, and prepares the product for temperature-maintained delivery.'
     },
     {
       q: 'How should Dairy & Pasture products be stored at home?',
-      a: 'Fresh milk should always be placed in the refrigerator promptly and maintained between 2°C and 4°C. Avoid keeping milk in the refrigerator door shelves where temperature fluctuates most. Always keep bottles sealed when not in use.'
+      a: 'Fresh milk should always be placed in the refrigerator promptly and maintained between 2°C and 4°C. Avoid keeping milk in the refrigerator door shelves where temperature fluctuates most. Always keep packets and pouches properly sealed when stored.'
     }
   ];
 
@@ -158,7 +158,7 @@ export default function Process({ onNavigate }) {
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="max-w-3xl mx-auto text-center space-y-4">
             <span className="inline-block text-xs font-semibold uppercase tracking-wider text-[#236B45] bg-[#E9F3E9] px-3.5 py-1.5 rounded-full border border-[#236B45]/20">
-              FROM PASTURE TO BOTTLE
+              FROM PASTURE TO PACKET
             </span>
             <h1 className="font-heading text-[32px] sm:text-[46px] lg:text-[52px] font-bold text-[#153F2C] tracking-tight leading-[1.2]">
               From Farm to Carefully Packaged Dairy
@@ -249,7 +249,7 @@ export default function Process({ onNavigate }) {
               Inside the Dairy Processing Environment
             </h2>
             <p className="text-[16px] text-[#657168]">
-              Photographs illustrating sanitary stainless-steel tanks, food-grade filtration manifolds, temperature regulators, and bottling equipment.
+              Photographs illustrating sanitary stainless-steel tanks, food-grade filtration manifolds, temperature regulators, and packaging equipment.
             </p>
           </div>
 
@@ -310,7 +310,7 @@ export default function Process({ onNavigate }) {
                 Appropriate Processing
               </h3>
               <p className="text-sm text-[#657168] leading-relaxed">
-                Strict adherence to temperature thresholds. Milk is protected from ambient heat exposure from the milking shed through storage and bottling.
+                Strict adherence to temperature thresholds. Milk is protected from ambient heat exposure from the milking shed through storage and sealed packaging.
               </p>
             </div>
 
@@ -409,13 +409,13 @@ export default function Process({ onNavigate }) {
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
           <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
             <span className="text-xs font-semibold uppercase tracking-wider text-[#236B45] bg-[#E9F3E9] px-3 py-1 rounded-md">
-              SEALING & BOTTLING
+              SEALING & PACKAGING
             </span>
             <h2 className="font-heading text-[28px] sm:text-[38px] font-semibold text-[#153F2C]">
               Packaging Gallery
             </h2>
             <p className="text-[16px] text-[#657168]">
-              Photographs showcasing clean bottles, sealed containers, label placement, and packaging handling.
+              Photographs showcasing clean sealed packets, pouches, label placement, and packaging handling.
             </p>
           </div>
 
@@ -429,7 +429,7 @@ export default function Process({ onNavigate }) {
             </div>
             <div className="rounded-[16px] overflow-hidden border border-[#DCE5DD] aspect-[4/3] bg-white shadow-xs flex items-center justify-center p-2">
               <img
-                src="/images/pakcging.png"
+                src="/images/freezr.png"
                 alt="Dairy & Pasture Fresh Milk Packaging Pouch"
                 className="w-full h-full object-contain hover:scale-105 transition-transform duration-500"
               />
@@ -437,7 +437,7 @@ export default function Process({ onNavigate }) {
             <div className="rounded-[16px] overflow-hidden border border-[#DCE5DD] aspect-[4/3] bg-white shadow-xs">
               <img
                 src="/images/pak-dairy-cans.jpg"
-                alt="Hygienic bottling setup"
+                alt="Hygienic packaging setup"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
