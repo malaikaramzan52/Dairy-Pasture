@@ -15,7 +15,6 @@ export default function Navbar({ currentPage, onNavigate }) {
   const handleNavClick = (pageId) => {
     onNavigate(pageId);
     setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (

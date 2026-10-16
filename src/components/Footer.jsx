@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, MapPin, MessageCircle, Heart, ArrowUp } from 'lucide-react';
+import { Phone, MapPin, MessageCircle, ArrowUp } from 'lucide-react';
 import InstagramIcon from './InstagramIcon';
 
 export default function Footer({ onNavigate }) {
@@ -9,7 +9,6 @@ export default function Footer({ onNavigate }) {
 
   const handleNavClick = (pageId) => {
     onNavigate(pageId);
-    scrollToTop();
   };
 
   return (
@@ -59,7 +58,7 @@ export default function Footer({ onNavigate }) {
                   className="hover:text-white text-[#E9F3E9]/80 transition-colors flex items-center gap-2 cursor-pointer"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#236B45]"></span>
-                  About Us
+                  About
                 </button>
               </li>
               <li>
@@ -68,7 +67,7 @@ export default function Footer({ onNavigate }) {
                   className="hover:text-white text-[#E9F3E9]/80 transition-colors flex items-center gap-2 cursor-pointer"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#236B45]"></span>
-                  Our Farm (Cows & Goats)
+                  Farm
                 </button>
               </li>
               <li>
@@ -77,7 +76,7 @@ export default function Footer({ onNavigate }) {
                   className="hover:text-white text-[#E9F3E9]/80 transition-colors flex items-center gap-2 cursor-pointer"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-[#236B45]"></span>
-                  Process & Products
+                  Process
                 </button>
               </li>
               <li>
@@ -166,18 +165,28 @@ export default function Footer({ onNavigate }) {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#E9F3E9]/70">
-          <p>© {new Date().getFullYear()} Dairy & Pasture. All rights reserved. Lahore, Pakistan.</p>
-          <div className="flex items-center gap-6">
-            <span className="flex items-center gap-1">
-              Made with <Heart className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" /> for Pakistani Dairy Farming
-            </span>
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#E9F3E9]/70 pb-2">
+          <p className="text-center sm:text-left">
+            © {new Date().getFullYear()}{' '}
+            <a
+              href="https://hattechmedia.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:underline font-medium transition-colors"
+            >
+              HATTech Media
+            </a>
+            . All Right Reserved
+          </p>
+
+          <div className="flex items-center sm:mr-28">
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-md bg-[#236B45]/60 hover:bg-[#236B45] text-white transition-colors cursor-pointer"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#236B45] hover:bg-[#2e8255] text-white text-xs font-medium transition-all duration-200 shadow-sm hover:shadow cursor-pointer group"
               aria-label="Scroll to top"
             >
-              <ArrowUp className="w-4 h-4" />
+              <span>Back to top</span>
+              <ArrowUp className="w-3.5 h-3.5 transition-transform duration-200 group-hover:-translate-y-0.5" />
             </button>
           </div>
         </div>

@@ -31,10 +31,19 @@ function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  // Guarantee that whenever currentPage changes, page view immediately starts at the top
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [currentPage]);
+
   const handleNavigate = (pageId) => {
     setCurrentPage(pageId);
     window.location.hash = pageId;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   };
 
   return (

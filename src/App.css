@@ -1,9 +1,5 @@
 /* App-wide custom helper styles for Dairy & Pasture */
 
-/* Ensure smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
 
 /* Card hover lift effect */
 .hover-lift {
